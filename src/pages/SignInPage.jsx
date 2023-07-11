@@ -47,9 +47,9 @@ export default function SignInPage() {
     <SingInContainer>
       <form onSubmit={logIn}>
         <MyWalletLogo />
-        <input placeholder="E-mail" type="email" required onChange={e => setEmail(e.target.value)}/>
-        <input placeholder="Senha" type="password" required onChange={e => setPassword(e.target.value)}/>
-        <button type="submit" >Entrar</button>
+        <input data-test="email" placeholder="E-mail" type="email" required onChange={e => setEmail(e.target.value)}/>
+        <input data-test="password" placeholder="Senha" type="password" required onChange={e => setPassword(e.target.value)}/>
+        <button data-test="sign-in-submit" type="submit" >Entrar</button>
       </form>
 
       <Link to="/cadastro">

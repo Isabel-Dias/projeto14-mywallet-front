@@ -59,9 +59,9 @@ export default function newTransaction() {
       <TransactionsContainer>
         <h1>Nova {params.tipo}</h1>
         <form onSubmit={newTransaction}>
-          <input placeholder="Valor" type="text" required onChange={e => setValue(e.target.value)}/>
-          <input placeholder="Descrição" type="text" required onChange={e => setName(e.target.value)}/>
-          <button type="submit" >Salvar {params.tipo}</button>
+          <input data-test="registry-amount-input" placeholder="Valor" type="text" required onChange={e => setValue(e.target.value)}/>
+          <input data-test="registry-name-input" placeholder="Descrição" type="text" required onChange={e => setName(e.target.value)}/>
+          <button data-test="registry-save" type="submit" >Salvar {params.tipo}</button>
         </form>
       </TransactionsContainer>
     )

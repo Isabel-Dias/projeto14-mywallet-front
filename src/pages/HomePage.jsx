@@ -22,7 +22,7 @@ export default function HomePage() {
 
         setTransactions(userInfo.data.transactions);
         setUserName(userInfo.data.name);
-        
+
         return
 
       } catch (error) {
@@ -48,8 +48,8 @@ export default function HomePage() {
   return (
     <HomeContainer>
       <Header>
-        <h1>Olá, {userName}</h1>
-        <BiExit onClick={logOut} />
+        <h1 data-test="user-name">Olá, {userName}</h1>
+        <BiExit onClick={logOut} data-test="logout" />
       </Header>
 
       <TransactionsContainer>
@@ -59,9 +59,9 @@ export default function HomePage() {
               <ListItemContainer key={index}>
                 <div>
                   <span>{transaction.date}</span>
-                  <strong>{transaction.name}</strong>
+                  <strong data-test="registry-name">{transaction.name}</strong>
                 </div>
-                <Value style={{color: transaction.type == "positivo" ? "green" : "red"}}>{transaction.value}</Value>
+                <Value data-test="registry-amount" style={{ color: transaction.type == "positivo" ? "green" : "red" }}>{transaction.value}</Value>
               </ListItemContainer>
             )
           }
@@ -70,24 +70,24 @@ export default function HomePage() {
 
         <article>
           <strong>Saldo</strong>
-          <Value style={{color: total <= 0 ? "red" : "green"}}>{total}</Value>
+          <Value data-test="total-amount" style={{ color: total <= 0 ? "red" : "green" }}>{total}</Value>
         </article>
       </TransactionsContainer>
 
 
       <ButtonsContainer>
-        <button>
-          <Link to={`/nova-transacao/${"entrada"}`}>
+        <Link to={`/nova-transacao/${"entrada"}`}>
+          <button data-test="new-income">
             <AiOutlinePlusCircle />
             <p>Nova <br /> entrada</p>
-          </Link>
-        </button>
-        <button>
-          <Link to={`/nova-transacao/${"saída"}`}>
+          </button>
+        </Link>
+        <Link to={`/nova-transacao/${"saída"}`}>
+          <button data-test="new-expense">
             <AiOutlineMinusCircle />
             <p>Nova <br />saída</p>
-          </Link>
-        </button>
+          </button>
+        </Link>
       </ButtonsContainer>
 
     </HomeContainer>
